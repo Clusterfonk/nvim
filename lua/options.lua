@@ -57,6 +57,5 @@ opt.listchars = {eol='¬', tab='¦ ', nbsp='⎵'}
 opt.signcolumn = "yes"
 opt.isfname:append("@-@")
 
-opt.termguicolors = true
 opt.colorcolumn = "100"
 
