@@ -6,31 +6,16 @@ return {
     },
     opts = function()
         local actions = require("telescope.builtin")
-        local theme = require("telescope.themes")
-
-        local minimal = function()
-            return require('telescope.themes').get_dropdown({
-                borderchars = {
-                    { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
-                    prompt = {"─", "│", " ", "│", '┌', '┐', "│", "│"},
-                    results = {"─", "│", "─", "│", "├", "┤", "┘", "└"},
-                    preview = { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
-                },
-                width = 0.8,
-                previewer = false,
-                prompt_title = false,
-            })
-        end
 
         return {
             pickers = {
-                find_files = { 
+                find_files = {
                     hidden = true,
-            },
-            defaults = {
-                mappings = { i = { ["<esc>"] = actions.close}},
-            },
-        }}
+                },
+                defaults = {
+                    mappings = { i = { ["<esc>"] = actions.close}},
+                },
+            }}
     end,
     config = function(_, opts)
         require("telescope").setup(opts)
