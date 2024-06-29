@@ -13,6 +13,13 @@ vim.keymap.set('n', "<leader>pv", vim.cmd.Ex)
 vim.keymap.set('n', '.', "<Nop>")
 vim.keymap.set('n', '\\', '.')
 
+-- PERF: things
+-- NOTE: ars
+-- PERF: ars
+-- BUG: ars
+-- FIX: ars
+-- TODO: ars
+
 -------------------
 -- movement
 -------------------
@@ -36,7 +43,7 @@ vim.keymap.set('', 'I', 'L', {})
 vim.keymap.set('n', '<C-n>', "<C-d>zz")
 vim.keymap.set('n', '<C-e>', "<C-u>zz")
 
--- end of word (none, ctrl) 
+-- end of word (none, ctrl)
 -- end of WORD (shift)
 vim.keymap.set({'n', 'o', 'x'}, '<C-m>', 'ge')
 vim.keymap.set({'n', 'o', 'x'}, 'M', 'gE') -- delimited by whitespace
@@ -92,17 +99,17 @@ vim.keymap.set('n', '<C-TAB>', '<C-i>') -- jump forwads
 -------------------
 -- quickfix nav.
 -------------------
---vim.keymap.set('n', '<c-k>', "<cmd>cnext<cr>zz") -- todo: diff. keybind 
---vim.keymap.set('n', '<c-k>', "<cmd>lnext<cr>zz") -- todo: diff. keybind 
+--vim.keymap.set('n', '<c-k>', "<cmd>cnext<cr>zz") -- todo: diff. keybind
+--vim.keymap.set('n', '<c-k>', "<cmd>lnext<cr>zz") -- todo: diff. keybind
 --
---vim.keymap.set('n', '<c-j>', "<cmd>cprev<cr>zz") -- todo: diff. keybind 
---vim.keymap.set('n', '<c-k>', "<cmd>lprev<cr>zz") -- todo: diff. keybind 
+--vim.keymap.set('n', '<c-j>', "<cmd>cprev<cr>zz") -- todo: diff. keybind
+--vim.keymap.set('n', '<c-k>', "<cmd>lprev<cr>zz") -- todo: diff. keybind
 
 -------------------
 -- misc
 -------------------
 -- switch cwd to the directory of the open buffer
-vim.keymap.set({'n', 'o', 'x'}, '<leader>cd', function() 
+vim.keymap.set({'n', 'o', 'x'}, '<leader>cd', function()
     vim.cmd("cd %:p:h")
     vim.cmd("pwd")
 end)
@@ -111,11 +118,6 @@ end)
 vim.keymap.set('n', '<C-f>', "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set('n', '<leader>f', function()
     vim.lsp.buf.format()
-end)
-
--- source current file
-vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
 end)
 
 -------------------
