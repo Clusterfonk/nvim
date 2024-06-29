@@ -1,11 +1,17 @@
 -------------------
--- leader
+-- general
 -------------------
 vim.g.mapleader = ' '
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- escape
 vim.keymap.set({'i', 'v'}, ',.', '<Esc>', {})
+
+-- file explorer
+vim.keymap.set('n', "<leader>pv", vim.cmd.Ex)
+
+-- repeat singular command
+vim.keymap.set('n', '.', "<Nop>")
+vim.keymap.set('n', '\\', '.')
 
 -------------------
 -- movement
@@ -29,6 +35,13 @@ vim.keymap.set('', 'I', 'L', {})
 -- half page jumping
 vim.keymap.set('n', '<C-n>', "<C-d>zz")
 vim.keymap.set('n', '<C-e>', "<C-u>zz")
+
+-- end of word (none, ctrl) 
+-- end of WORD (shift)
+vim.keymap.set({'n', 'o', 'x'}, '<C-m>', 'ge') 
+vim.keymap.set({'n', 'o', 'x'}, 'M', 'gE') -- delimited by whitespace
+vim.keymap.set({'n', 'o', 'x'}, '<C-i>', 'e') 
+vim.keymap.set({'n', 'o', 'x'}, 'I', 'E') -- delimited by whitespace
 
 -------------------
 -- insert
@@ -72,24 +85,23 @@ vim.keymap.set('n', '<leader>Y', "\"+Y")
 -------------------
 -- buffer
 -------------------
-vim.keymap.set('n', '<leader>q', ":q<CR>")
--- ctrl-i go file forward
--- ctrl-o go file backwards
+vim.keymap.set('n', '<leader>q', ":q<cr>")
+vim.keymap.set('n', '<TAB>', '<C-o>') -- jump backwards
+vim.keymap.set('n', '<C-TAB>', '<C-i>') -- jump forwads
 
 -------------------
 -- quickfix nav.
 -------------------
---vim.keymap.set('n', '<C-k>', "<cmd>cnext<CR>zz") -- TODO: diff. keybind 
---vim.keymap.set('n', '<C-k>', "<cmd>lnext<CR>zz") -- TODO: diff. keybind 
+--vim.keymap.set('n', '<c-k>', "<cmd>cnext<cr>zz") -- todo: diff. keybind 
+--vim.keymap.set('n', '<c-k>', "<cmd>lnext<cr>zz") -- todo: diff. keybind 
 --
---vim.keymap.set('n', '<C-j>', "<cmd>cprev<CR>zz") -- TODO: diff. keybind 
---vim.keymap.set('n', '<C-k>', "<cmd>lprev<CR>zz") -- TODO: diff. keybind 
-
+--vim.keymap.set('n', '<c-j>', "<cmd>cprev<cr>zz") -- todo: diff. keybind 
+--vim.keymap.set('n', '<c-k>', "<cmd>lprev<cr>zz") -- todo: diff. keybind 
 
 -------------------
 -- misc
 -------------------
--- switch CWD to the directory of the open buffer
+-- switch cwd to the directory of the open buffer
 vim.keymap.set({'n', 'o', 'x'}, '<leader>cd', function() 
     vim.cmd("cd %:p:h")
     vim.cmd("pwd")
@@ -106,3 +118,13 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
+-------------------
+-- UNUSED
+-------------------
+vim.keymap.set('', 'k', '<Nop>')
+vim.keymap.set('', 'K', '<Nop>')
+vim.keymap.set('', 'j', '<Nop>')
+vim.keymap.set('', 'J', '<Nop>')
+vim.keymap.set('', 'l', '<Nop>')
+vim.keymap.set('', 'L', '<Nop>')
+vim.keymap.set('', '<C-o>', '<Nop>')
