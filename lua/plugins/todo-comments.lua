@@ -7,9 +7,18 @@ return {
             TODO = { icon = " ", color = "info" },
             HACK = { icon = " ", color = "warning" },
             WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
-            PERF = { icon = "󰅒 ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+            PERF = { icon = "󰅒 ", color = "perf", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
             NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
             TEST = { icon = "󰙨 ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
+        },
+        colors = {
+            error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
+            warning = { "DiagnosticWarn", "WarningMsg", "#FBBF24" },
+            info = { "DiagnosticInfo", "#2563EB" },
+            hint = { "GruvboxGreen", "#10B981" },
+            default = { "Identifier", "#7C3AED" },
+            test = { "GruvboxAqua", "#FF00FF" },
+            perf = { "GruvboxPurple", "#282828"}
         },
   }
 }

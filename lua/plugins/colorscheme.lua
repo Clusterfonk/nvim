@@ -12,8 +12,5 @@ return {
             GitSignsDelete = { link = "GruvboxRedSign" },
             SignColumn = { link = "LineNr" },
         },
-        --palette_overrides = {
-        --    dark0_soft = "#282828",
-        --}
     }
 }

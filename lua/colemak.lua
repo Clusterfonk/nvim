@@ -13,13 +13,6 @@ vim.keymap.set('n', "<leader>pv", vim.cmd.Ex)
 vim.keymap.set('n', '.', "<Nop>")
 vim.keymap.set('n', '\\', '.')
 
--- PERF: things
--- NOTE: ars
--- PERF: ars
--- BUG: ars
--- FIX: ars
--- TODO: ars
-
 -------------------
 -- movement
 -------------------
