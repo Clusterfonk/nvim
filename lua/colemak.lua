@@ -38,9 +38,9 @@ vim.keymap.set('n', '<C-e>', "<C-u>zz")
 
 -- end of word (none, ctrl) 
 -- end of WORD (shift)
-vim.keymap.set({'n', 'o', 'x'}, '<C-m>', 'ge') 
+vim.keymap.set({'n', 'o', 'x'}, '<C-m>', 'ge')
 vim.keymap.set({'n', 'o', 'x'}, 'M', 'gE') -- delimited by whitespace
-vim.keymap.set({'n', 'o', 'x'}, '<C-i>', 'e') 
+vim.keymap.set({'n', 'o', 'x'}, '<C-i>', 'e')
 vim.keymap.set({'n', 'o', 'x'}, 'I', 'E') -- delimited by whitespace
 
 -------------------
