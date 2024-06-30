@@ -46,7 +46,7 @@ opt.lazyredraw = true       -- Faster scrolling
 opt.updatetime = 100        -- ms to wait for trigger an event
 opt.swapfile = false                            -- Don't use swapfile
 --opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
-opt.undodir = vim.fn.expand("$HOME") .. "/.nvim/undodir"
+opt.undodir = vim.fn.expand("$HOME") .. "/.cache/nvim/undodir"
 opt.undofile = true
 
 opt.backspace = [[indent,eol,start]]
