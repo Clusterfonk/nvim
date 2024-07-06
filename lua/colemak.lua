@@ -116,6 +116,7 @@ end)
 -------------------
 -- UNUSED
 -------------------
+vim.keymap.set('', '<C-h>', '<Nop>')
 vim.keymap.set('', 'k', '<Nop>')
 vim.keymap.set('', 'K', '<Nop>')
 vim.keymap.set('', 'j', '<Nop>')
