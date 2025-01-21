@@ -36,7 +36,7 @@ return {
         formatting = lsp_zero.cmp_format({details = true}),
         mapping = cmp.mapping.preset.insert({
           ['<C-Space>'] = cmp.mapping.complete(),
-          ['<C-y>'] = cmp.mapping.confirm({select = true}),
+          ['<Tab>'] = cmp.mapping.confirm({select = true}),
           ['<C-u>'] = cmp.mapping.scroll_docs(-4),
           ['<C-d>'] = cmp.mapping.scroll_docs(4),
           ['<C-f>'] = cmp_action.luasnip_jump_forward(),
@@ -72,6 +72,14 @@ return {
         -- see :help lsp-zero-keybindings
         -- to learn the available actions
         lsp_zero.default_keymaps({buffer = bufnr})
+
+        local opts = {buffer = bufnr, remap = false}
+        vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, opts)
+        vim.keymap.set('n', '<leader>vca', function() vim.lsp.buf.code_action() end, opts)
+        vim.keymap.set('n', '<leader>vrr', function() vim.lsp.buf.references() end, opts)
+        vim.keymap.set('n', '<leader>vrn', function() vim.lsp.buf.rename() end, opts)
+        vim.keymap.set('n', '<leader>vh', function() vim.lsp.buf.signature_help() end, opts)
+
         --vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, opts)
       end)
 
