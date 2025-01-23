@@ -120,13 +120,15 @@ vim.keymap.set('n', '<leader>Y', "\"+Y")
 vim.keymap.set('n', '<leader>q', ":q<cr>")
 
 -------------------
--- inside/outside
+-- (a)outside/inside(t)
 -------------------
 vim.keymap.set('n', 'ct', 'ci')
+vim.keymap.set('n', 'dt', 'di')
 vim.keymap.set('n', 'vt', 'vi')
 vim.keymap.set('n', 'yt', 'yi')
 
 vim.keymap.set('n', 'ca', 'ca')
+vim.keymap.set('n', 'da', 'da')
 vim.keymap.set('n', 'va', 'va')
 vim.keymap.set('n', 'ya', 'ya')
 
