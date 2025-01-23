@@ -2,16 +2,17 @@
 -- general
 -------------------
 vim.g.mapleader = ' '
+vim.keymap.set('n', '<leader>w', function() vim.cmd('write!') end)
 
 -- escape
 vim.keymap.set({ 'i', 'v' }, ',.', '<Esc>', {})
 
 -- file explorer
-vim.keymap.set('n', "<leader>pv", vim.cmd.Ex)
+vim.keymap.set('n', "<leader>fp", vim.cmd.Ex)
 
--- repeat singular command
-vim.keymap.set('n', '.', "<Nop>")
-vim.keymap.set('n', '\\', '.')
+-- repeat
+vim.keymap.set({ 'n', 'v' }, '.', ';')
+vim.keymap.set({ 'n', 'v' }, '\\', '.')
 
 -------------------
 -- navigation
@@ -29,20 +30,19 @@ vim.keymap.set({ 'n', 'o', 'x' }, 'E', '', {})
 vim.keymap.set('n', 'E', "v:m '<-2<CR>gv=gv<ESC>")
 vim.keymap.set('v', 'E', ":m '<-2<CR>gv=gv")
 
-vim.keymap.set('', 'i', 'l', {})
-vim.keymap.set('', 'I', 'L', {})
+vim.keymap.set({ 'n', 'v', 'o', 'x' }, 'i', 'l', {})
+vim.keymap.set({ 'n', 'v', 'o', 'x' }, 'I', 'L', {})
 
 -- half page jumping
 vim.keymap.set('n', '<C-n>', "<C-d>zz")
 vim.keymap.set('n', '<C-e>', "<C-u>zz")
-
 
 -------------------
 -- word navigation
 -------------------
 -- b B -> beginning of previous word/WORD
 -- w W -> beginning of next word/WORD
--- <C-I> I end of word/WORD
+-- <C-I> I end of next word/WORD
 -- <C-m> M end of previous word/WORD
 vim.keymap.set({ 'n', 'o', 'x' }, '<C-m>', 'ge')
 vim.keymap.set({ 'n', 'o', 'x' }, 'M', 'gE')
@@ -51,6 +51,12 @@ vim.keymap.set({ 'n', 'o', 'x' }, 'I', 'E')
 
 vim.keymap.set({ 'n', 'o', 'x' }, 'ge', '<Nop>')
 vim.keymap.set({ 'n', 'o', 'x' }, 'gE', '<Nop>')
+
+-------------------
+-- find / to
+-------------------
+vim.keymap.set({ 'n', 'v', 'o', 'x' }, 'l', 't')
+vim.keymap.set({ 'n', 'v', 'o', 'x' }, 'L', 'T')
 
 -------------------
 -- window navigation
@@ -72,8 +78,8 @@ vim.keymap.set({ 'n' }, '<C-w><C-i>', '<Nop>')
 
 -------------------
 -- insert
-vim.keymap.set({ 'n', 'o', 'x' }, 'a', 'i', {})
 -------------------
+vim.keymap.set({ 'n', 'o', 'x' }, 'a', 'i', {})
 vim.keymap.set({ 'n', 'o', 'x' }, 'A', 'I', {})
 vim.keymap.set({ 'n', 'o', 'x' }, 't', 'a', {})
 vim.keymap.set({ 'n', 'o', 'x' }, 'T', 'A', {})
@@ -92,7 +98,7 @@ vim.keymap.set({ 'n', 'o', 'x' }, '<leader>/', ":nohlsearch<CR>")
 vim.keymap.set('n', 'J', "mzJ`z")
 
 -- replace current word
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -------------------
 -- copy paste
@@ -105,25 +111,41 @@ vim.keymap.set('n', '<leader>d', "\"_d")
 vim.keymap.set('v', '<leader>d', "\"_d")
 
 --copy to system clipboard
-vim.keymap.set('n', '<leader>y', "\"+y")
-vim.keymap.set('v', '<leader>y', "\"+y")
+vim.keymap.set({ 'n', 'v' }, '<leader>y', "\"+y")
 vim.keymap.set('n', '<leader>Y', "\"+Y")
 
 -------------------
 -- buffer
 -------------------
 vim.keymap.set('n', '<leader>q', ":q<cr>")
-vim.keymap.set('n', '<C-b>', '<C-o>') -- jump backwards
-vim.keymap.set('n', '<C-f>', '<C-i>') -- jump forwads
+
+-------------------
+-- inside/outside
+-------------------
+vim.keymap.set('n', 'ct', 'ci')
+vim.keymap.set('n', 'vt', 'vi')
+vim.keymap.set('n', 'yt', 'yi')
+
+vim.keymap.set('n', 'ca', 'ca')
+vim.keymap.set('n', 'va', 'va')
+vim.keymap.set('n', 'ya', 'ya')
+
+vim.keymap.set('n', '=a', '=a')
 
 -------------------
 -- quickfix nav.
 -------------------
---vim.keymap.set('n', '<c-k>', "<cmd>cnext<cr>zz") -- todo: diff. keybind
---vim.keymap.set('n', '<c-k>', "<cmd>lnext<cr>zz") -- todo: diff. keybind
---
---vim.keymap.set('n', '<c-j>', "<cmd>cprev<cr>zz") -- todo: diff. keybind
---vim.keymap.set('n', '<c-k>', "<cmd>lprev<cr>zz") -- todo: diff. keybind
+vim.keymap.set('n', '<c-u>', "<cmd>cnext<cr>zz")
+vim.keymap.set('n', '<c-u>', "<cmd>lnext<cr>zz")
+
+vim.keymap.set('n', '<c-d>', "<cmd>cprev<cr>zz")
+vim.keymap.set('n', '<c-d>', "<cmd>lprev<cr>zz")
+
+-------------------
+-- jumplist
+-------------------
+vim.keymap.set('n', "<c-f>", "<C-i>")
+vim.keymap.set('n', "<c-b>", "<C-o>")
 
 -------------------
 -- misc
@@ -136,7 +158,7 @@ end)
 
 -- switch projects
 --vim.keymap.set('n', '<leader>tm', "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-vim.keymap.set('n', '<leader>f', function()
+vim.keymap.set('n', '<leader>l', function()
     vim.lsp.buf.format()
 end)
 
@@ -148,6 +170,5 @@ vim.keymap.set('', 'k', '<Nop>')
 vim.keymap.set('', 'K', '<Nop>')
 vim.keymap.set('', 'j', '<Nop>')
 vim.keymap.set('', 'J', '<Nop>')
-vim.keymap.set('', 'l', '<Nop>')
-vim.keymap.set('', 'L', '<Nop>')
 vim.keymap.set('', '<C-o>', '<Nop>')
+vim.keymap.set('', 'q', '<Nop>')

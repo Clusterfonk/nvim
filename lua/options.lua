@@ -1,9 +1,5 @@
 --options
 
--- leader
-vim.g.mapleader = ' '
-vim.keymap.set('n', '<leader>w', function() vim.cmd('write!') end)
-
 local opt = vim.opt
 
 opt.number = true
@@ -14,8 +10,8 @@ opt.cmdheight = 1           -- Height of the command bar
 opt.hid = true              -- Hide buffers when abandoned
 opt.showmatch = true        -- Show matching parentheses
 opt.matchtime = 2           -- N tenth of a second showmatch
+opt.formatoptions:remove "o"
 
---opt.clipboard = 'unnamedplus'                   -- Copy/paste to system clipboard
 opt.completeopt = 'menuone,noinsert,noselect'   -- Autocomplete options
 opt.showmode = false                            -- Hide current mode
 
@@ -44,8 +40,7 @@ opt.hidden = true           -- Enable background buffers
 opt.history = 500           -- Remember N lines in history
 opt.lazyredraw = true       -- Faster scrolling
 opt.updatetime = 100        -- ms to wait for trigger an event
-opt.swapfile = false                            -- Don't use swapfile
---opt.undodir = os.getenv("HOME") .. "/.nvim/undodir"
+opt.swapfile = false        -- Don't use swapfile
 opt.undodir = vim.fn.expand("$HOME") .. "/.cache/nvim/undodir"
 opt.undofile = true
 
@@ -60,3 +55,7 @@ opt.isfname:append("@-@")
 
 opt.colorcolumn = "100"
 
+-----------------------------------------------------------
+-- Mouse
+-----------------------------------------------------------
+vim.opt.mouse = ""

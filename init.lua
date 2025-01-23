@@ -9,6 +9,7 @@
 -- General
 require("options")
 require("colemak")
+require("filetypes")
 
 -- lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

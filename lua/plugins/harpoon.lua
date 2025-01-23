@@ -1,13 +1,8 @@
 return {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
-    event = "BufReadPre",
-    dependencies = { 
-        "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope.nvim",
-    },
     config = function()
-        require("harpoon").setup({})
+        require("harpoon").setup()
     end,
 
     keys = {
@@ -23,7 +18,7 @@ return {
         {
             "<leader>a",
             function()
-                require("harpoon"):list():append()
+                require("harpoon"):list():add()
             end,
             desc = "harpoon file",
         },

@@ -75,12 +75,12 @@ return {
 
         local opts = {buffer = bufnr, remap = false}
         vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, opts)
-        vim.keymap.set('n', '<leader>vca', function() vim.lsp.buf.code_action() end, opts)
-        vim.keymap.set('n', '<leader>vrr', function() vim.lsp.buf.references() end, opts)
-        vim.keymap.set('n', '<leader>vrn', function() vim.lsp.buf.rename() end, opts)
-        vim.keymap.set('n', '<leader>vh', function() vim.lsp.buf.signature_help() end, opts)
+        vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
 
-        --vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, opts)
+        vim.keymap.set('n', '<leader>kca', function() vim.lsp.buf.code_action() end, opts)
+        vim.keymap.set('n', '<leader>krr', function() vim.lsp.buf.references() end, opts)
+        vim.keymap.set('n', '<leader>krn', function() vim.lsp.buf.rename() end, opts)
+        vim.keymap.set('n', '<leader>kh', function() vim.lsp.buf.signature_help() end, opts)
       end)
 
       require('mason-lspconfig').setup({
