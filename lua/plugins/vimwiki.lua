@@ -9,14 +9,16 @@ return {
             },
 
             -- keymaps
-            --vim.keymap.set('n', '<leader>ww', "<Plug>VimwikiIndex", {})
-            vim.keymap.set('n', '<leader>ww', "<Plug>VimwikiIndex", {})
-
-              --let g:vimwiki_key_mappings =
-              --  \ {
-              --  \ 'headers': 0,
-              --  \ 'text_objs': 0,
-              --  \ }
+            vim.keymap.set('n', '<leader>vw', "<Plug>VimwikiIndex", {}),
+            vim.keymap.set('n', '<leader>w<leader>w', "<Nop>", {}),
+            vim.keymap.set('n', '<leader>w<leader>y', "<Nop>", {}),
+            vim.keymap.set('n', '<leader>w<leader>m', "<Nop>", {}),
+            vim.keymap.set('n', '<leader>w<leader>i', "<Nop>", {}),
+            vim.keymap.set('n', '<leader>w<leader>t', "<Nop>", {}),
+            vim.keymap.set('n', '<leader>wi', "<Nop>", {}),
+            vim.keymap.set('n', '<leader>wt', "<Nop>", {}),
+            vim.keymap.set('n', '<leader>ws', "<Nop>", {}),
+            vim.keymap.set('n', '<leader>ww', "<Nop>", {}),
         }
     end,
 }

@@ -137,11 +137,11 @@ vim.keymap.set('n', '=a', '=a')
 -------------------
 -- quickfix nav.
 -------------------
-vim.keymap.set('n', '<c-u>', "<cmd>cnext<cr>zz")
-vim.keymap.set('n', '<c-u>', "<cmd>lnext<cr>zz")
+vim.keymap.set('n', '<c-u>', "<cmd>cprev<cr>zz")
+vim.keymap.set('n', '<c-u>', "<cmd>lprev<cr>zz")
 
-vim.keymap.set('n', '<c-d>', "<cmd>cprev<cr>zz")
-vim.keymap.set('n', '<c-d>', "<cmd>lprev<cr>zz")
+vim.keymap.set('n', '<c-d>', "<cmd>cnext<cr>zz")
+vim.keymap.set('n', '<c-d>', "<cmd>lnext<cr>zz")
 
 -------------------
 -- jumplist
@@ -157,6 +157,14 @@ vim.keymap.set({ 'n', 'o', 'x' }, '<leader>cd', function()
     vim.cmd("cd %:p:h")
     vim.cmd("pwd")
 end)
+
+-- TodoLocList
+vim.keymap.set({'n'}, '<leader>tl', function() vim.cmd("TodoLocList") end)
+
+-------------------
+-- Refactor
+-------------------
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- switch projects
 --vim.keymap.set('n', '<leader>tm', "<cmd>silent !tmux neww tmux-sessionizer<CR>")
@@ -174,3 +182,4 @@ vim.keymap.set('', 'j', '<Nop>')
 vim.keymap.set('', 'J', '<Nop>')
 vim.keymap.set('', '<C-o>', '<Nop>')
 vim.keymap.set('', 'q', '<Nop>')
+vim.keymap.set('n', '<leader>ww', '<Nop>')

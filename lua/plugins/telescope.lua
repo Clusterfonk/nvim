@@ -32,5 +32,6 @@ return {
             builtin.grep_string({ search = vim.fn.input("Grep > ") })
         end)
         vim.keymap.set('n', '<leader>ec', function() builtin.find_files{cwd = vim.fn.stdpath("config")}end)
+        vim.keymap.set('n', '<leader>ea', function() builtin.find_files{cwd = "~/.config/awesome/"}end)
     end,
 }
