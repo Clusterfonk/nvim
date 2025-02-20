@@ -41,7 +41,7 @@ opt.history = 500           -- Remember N lines in history
 opt.lazyredraw = true       -- Faster scrolling
 opt.updatetime = 100        -- ms to wait for trigger an event
 opt.swapfile = false        -- Don't use swapfile
-opt.undodir = vim.fn.expand("$HOME") .. "/.cache/nvim/undodir"
+opt.undodir = os.getenv("XDG_CACHE_HOME") .. "/nvim/undodir"
 opt.undofile = true
 
 opt.backspace = [[indent,eol,start]]
@@ -59,3 +59,9 @@ opt.colorcolumn = "100"
 -- Mouse
 -----------------------------------------------------------
 vim.opt.mouse = ""
+
+
+-----------------------------------------------------------
+-- netrw
+-----------------------------------------------------------
+vim.g.netrw_home = os.getenv("XDG_CACHE_HOME") .. "/nvim/"

@@ -137,11 +137,11 @@ vim.keymap.set('n', '=a', '=a')
 -------------------
 -- quickfix nav.
 -------------------
-vim.keymap.set('n', '<c-u>', "<cmd>cprev<cr>zz")
 vim.keymap.set('n', '<c-u>', "<cmd>lprev<cr>zz")
+vim.keymap.set('n', '<c-u>', "<cmd>cprev<cr>zz")
 
-vim.keymap.set('n', '<c-d>', "<cmd>cnext<cr>zz")
 vim.keymap.set('n', '<c-d>', "<cmd>lnext<cr>zz")
+vim.keymap.set('n', '<c-d>', "<cmd>cnext<cr>zz")
 
 -------------------
 -- jumplist

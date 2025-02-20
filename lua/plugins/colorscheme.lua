@@ -11,6 +11,7 @@ return {
             GitSignsChange = { link = "GruvboxOrangeSign" },
             GitSignsDelete = { link = "GruvboxRedSign" },
             SignColumn = { link = "LineNr" },
+            ZenBg = { link = "Normal"},
         },
     }
 }
