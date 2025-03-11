@@ -9,6 +9,7 @@
 -- General
 require("options")
 require("colemak")
+require("autocmds")
 require("filetypes")
 
 -- lazy

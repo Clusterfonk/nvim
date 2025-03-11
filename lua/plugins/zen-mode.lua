@@ -8,7 +8,7 @@ return {
         plugins = {
             alacritty = {
                 enabled = true,
-                font = "12"
+                font = "11"
             }
         }
         -- your configuration comes here
