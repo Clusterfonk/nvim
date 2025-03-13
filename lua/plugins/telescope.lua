@@ -18,6 +18,14 @@ return {
           },
         },
       },
+      extensions = {
+        fzf = {
+          fuzzy = true,
+          override_generic_sorter = true,
+          override_file_sorter = true,
+          case_mode = "smart_case",
+        }
+      },
       pickers = {
         find_files = {
           hiddn = true,
@@ -33,6 +41,7 @@ return {
         }
       },
     }
+    require("telescope").load_extension("fzf")
 
     local builtin = require("telescope.builtin")
     vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
@@ -42,10 +51,11 @@ return {
     vim.keymap.set('n', '<leader>fo', builtin.oldfiles, {})
     vim.keymap.set('n', '<leader>fk', ":Telescope keymaps<CR>", { silent = true })
 
+    vim.keymap.set('n', '<leader>gr', builtin.live_grep, {})
     vim.keymap.set('n', '<leader>gf', builtin.git_files, {})
-    vim.keymap.set('n', '<leader>gr', function()
-      builtin.grep_string({ search = vim.fn.input("Grep > ") })
-    end)
+    --vim.keymap.set('n', '<leader>gr', function()
+    --  builtin.grep_string({ search = vim.fn.input("Grep > ") })
+    --end)
     vim.keymap.set('n', '<leader>gb', function()
       builtin.grep_string({
         search = vim.fn.input("Grep (current buffer) > "),

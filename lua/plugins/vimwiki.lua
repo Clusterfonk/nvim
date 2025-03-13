@@ -57,8 +57,9 @@ return {
       vim.keymap.set('n', '<leader>w<leader>m', "<Nop>", {}),
       vim.keymap.set('n', '<leader>w<leader>i', "<Nop>", {}),
       vim.keymap.set('n', '<leader>w<leader>t', "<Nop>", {}),
-      vim.keymap.set('n', '<leader>wi', "<Nop>", {}),
       vim.keymap.set('n', '<leader>wt', "<Nop>", {}),
+      vim.keymap.set('n', '<leader>wn', "<Nop>", {}),
+      vim.keymap.set('n', '<leader>wi', "<Nop>", {}),
       vim.keymap.set('n', '<leader>ws', "<Nop>", {}),
       vim.keymap.set('n', '<leader>ww', "<Nop>", {}),
     }

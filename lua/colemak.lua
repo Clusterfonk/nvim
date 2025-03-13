@@ -4,9 +4,6 @@
 vim.g.mapleader = ' '
 vim.keymap.set('n', '<leader>w', function() vim.cmd('write!') end)
 
--- escape
-vim.keymap.set({ 'i', 'v' }, ',.', '<Esc>', {})
-
 -- source
 vim.keymap.set('n', '<leader><space>x', "<cmd>source %<CR>")
 vim.keymap.set('n', '<leader>x', ":.lua<CR>")
@@ -189,7 +186,7 @@ end)
 vim.keymap.set({ 'n' }, '<leader>tl', function() vim.cmd("TodoLocList") end)
 
 -- switch projects
---vim.keymap.set('n', '<leader>tm', "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+--vim.keymap.set('n', '<leader>tm', "<cmd>silent !tmux neww tmux-sessionizer.sh<CR>")
 
 -------------------
 -- Terminal
