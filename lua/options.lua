@@ -1,5 +1,9 @@
---options
-
+--[[
+ Sections:
+    -> General
+    -> Lazy
+    -> Theme
+]]--
 local opt = vim.opt
 
 opt.number = true
@@ -10,7 +14,8 @@ opt.cmdheight = 1           -- Height of the command bar
 opt.hid = true              -- Hide buffers when abandoned
 opt.showmatch = true        -- Show matching parentheses
 opt.matchtime = 2           -- N tenth of a second showmatch
-opt.formatoptions:remove "o"
+
+--opt.formatoptions:remove("o")
 
 opt.completeopt = 'menuone,noinsert,noselect'   -- Autocomplete options
 opt.showmode = false                            -- Hide current mode
@@ -70,3 +75,7 @@ opt.spell = true
 -- netrw
 -----------------------------------------------------------
 vim.g.netrw_home = os.getenv("XDG_CACHE_HOME") .. "/nvim/"
+
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize=25

@@ -12,32 +12,24 @@ vim.keymap.set('v', '<leader>x', ":lua<CR>")
 -- file explorer
 vim.keymap.set('n', "<leader>fp", vim.cmd.Ex)
 
--- repeat
-vim.keymap.set({ 'n', 'v' }, '.', ';')
-vim.keymap.set({ 'n', 'v' }, '\\', '.')
-
 -------------------
 -- navigation
 -------------------
-vim.keymap.set('', 'm', 'h', {})
-vim.keymap.set('', 'M', 'H', {})
+vim.keymap.set({ 'n', 'x' }, 'm', 'h', {})
+vim.keymap.set({ 'n', 'x' }, 'M', 'H', {})
 
 vim.keymap.set({ 'n', 'o', 'x' }, 'n', 'j', {})
-vim.keymap.set({ 'n', 'o', 'x' }, 'N', '', {})
-vim.keymap.set('n', 'N', "v:m '>+1<CR>gv=gv<ESC>")
-vim.keymap.set('v', 'N', ":m '>+1<CR>gv=gv")
+vim.keymap.set({ 'n', 'o', 'x' }, 'gn', 'gj', {}) -- display line
 
 vim.keymap.set({ 'n', 'o', 'x' }, 'e', 'k', {})
-vim.keymap.set({ 'n', 'o', 'x' }, 'E', '', {})
-vim.keymap.set('v', 'E', ":m '<-2<CR>gv=gv")
-vim.keymap.set('n', 'E', "v:m '<-2<CR>gv=gv<ESC>")
+vim.keymap.set({ 'n', 'o', 'x' }, 'ge', 'gk', {}) -- display line
 
-vim.keymap.set({ 'n', 'v', 'o', 'x' }, 'i', 'l', {})
-vim.keymap.set({ 'n', 'v', 'o', 'x' }, 'I', 'L', {})
+vim.keymap.set({ 'n', 'v', 'x' }, 'i', 'l', {})
+vim.keymap.set({ 'n', 'v', 'x' }, 'I', 'L', {})
 
 -- half page jumping
-vim.keymap.set({ 'n', 'v' }, '<C-n>', "<C-d>zz")
 vim.keymap.set({ 'n', 'v' }, '<C-e>', "<C-u>zz")
+vim.keymap.set({ 'n', 'v' }, '<C-n>', "<C-d>zz")
 
 -------------------
 -- word navigation
@@ -46,19 +38,19 @@ vim.keymap.set({ 'n', 'v' }, '<C-e>', "<C-u>zz")
 -- w W -> beginning of next word/WORD
 -- <C-I> I end of next word/WORD
 -- <C-m> M end of previous word/WORD
-vim.keymap.set({ 'n', 'o', 'x' }, '<C-m>', 'ge')
-vim.keymap.set({ 'n', 'o', 'x' }, 'M', 'gE')
-vim.keymap.set({ 'n', 'o', 'x' }, '<C-i>', 'e')
-vim.keymap.set({ 'n', 'o', 'x' }, 'I', 'E')
+vim.keymap.set({ 'n', 'o', 'v', 'x' }, '<C-m>', 'ge')
+vim.keymap.set({ 'n', 'o', 'v', 'x' }, 'M', 'gE')
+vim.keymap.set({ 'n', 'o', 'v', 'x' }, '<C-i>', 'e')
+vim.keymap.set({ 'n', 'o', 'v', 'x' }, 'I', 'E')
 
-vim.keymap.set({ 'n', 'o', 'x' }, 'ge', '<Nop>')
-vim.keymap.set({ 'n', 'o', 'x' }, 'gE', '<Nop>')
+vim.keymap.set({ 'n', 'o', 'v', 'x' }, 'ge', '<Nop>')
+vim.keymap.set({ 'n', 'o', 'v', 'x' }, 'gE', '<Nop>')
 
 -------------------
 -- find / to
 -------------------
-vim.keymap.set({ 'n', 'v', 'o', 'x' }, 'l', 't')
-vim.keymap.set({ 'n', 'v', 'o', 'x' }, 'L', 'T')
+vim.keymap.set({ 'n', 'v', 'x' }, 'l', 't')
+vim.keymap.set({ 'n', 'v', 'x' }, 'L', 'T')
 
 -------------------
 -- window navigation
@@ -81,26 +73,35 @@ vim.keymap.set({ 'n' }, '<C-w><C-i>', '<Nop>')
 -------------------
 -- insert
 -------------------
-vim.keymap.set({ 'n', 'o', 'x' }, 'a', 'i', {})
-vim.keymap.set({ 'n', 'o', 'x' }, 'A', 'I', {})
-vim.keymap.set({ 'n', 'o', 'x' }, 't', 'a', {})
-vim.keymap.set({ 'n', 'o', 'x' }, 'T', 'A', {})
+vim.keymap.set({ 'n' }, 'a', 'i', {})
+vim.keymap.set({ 'n', 'v' }, 'A', 'I', {})
+
+vim.keymap.set({ 'n' }, 't', 'a', {})
+vim.keymap.set({ 'n', 'v' }, 'T', 'A', {})
 
 -------------------
 -- highlight
 -------------------
-vim.keymap.set({ 'n', 'o', 'x' }, 'h', 'n')
-vim.keymap.set({ 'n', 'o', 'x' }, 'H', 'N')
-vim.keymap.set({ 'n', 'o', 'x' }, '<leader>/', ":nohlsearch<CR>")
+vim.keymap.set({ 'n', 'x' }, 'h', 'n')
+vim.keymap.set({ 'n', 'x' }, 'H', 'N')
+
+vim.keymap.set('n', 'gh', 'gn')
+vim.keymap.set('n', 'gH', 'gN')
+
+vim.keymap.set({ 'n', 'x' }, '<leader>/', ":nohlsearch<CR>")
 
 -------------------
 -- line manipulation
 -------------------
 -- Stay inplace and append bottom line to current
-vim.keymap.set('n', 'J', "mzJ`z")
+vim.keymap.set('n', 'J', "mzJ`z") -- TODO: doesnt work ?
 
--- replace current word
-vim.keymap.set("n", "<leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+-- move line
+vim.keymap.set('n', 'E', "v:m '<-2<CR>gv=gv<ESC>")
+vim.keymap.set('v', 'E', ":m '<-2<CR>gv=gv")
+
+vim.keymap.set('n', 'N', "v:m '>+1<CR>gv=gv<ESC>")
+vim.keymap.set('v', 'N', ":m '>+1<CR>gv=gv")
 
 -------------------
 -- spelling
@@ -116,12 +117,11 @@ vim.api.nvim_set_keymap('n', 'ze', '[s', {})
 vim.keymap.set('x', '<leader>p', "\"_dP")
 
 -- delete into void register
-vim.keymap.set('n', '<leader>d', "\"_d")
-vim.keymap.set('v', '<leader>d', "\"_d")
+vim.keymap.set({ 'n', 'x' }, '<leader>d', "\"_d")
 
 --copy to system clipboard
-vim.keymap.set({ 'n', 'v' }, '<leader>y', "\"+y")
-vim.keymap.set('n', '<leader>Y', "\"+Y")
+vim.keymap.set({ 'n', 'x' }, '<leader>y', "\"+y")
+vim.keymap.set({ 'n', 'x' }, '<leader>Y', "\"+Y")
 
 -------------------
 -- buffer
@@ -131,37 +131,104 @@ vim.keymap.set('n', '<leader>q', ":q<cr>")
 -------------------
 -- (a)outside/inside(t)
 -------------------
-vim.keymap.set('n', 'ct', 'ci')
-vim.keymap.set('n', 'dt', 'di')
+local inner_mappings = {
+  ['w'] = 'w',   -- word
+  ['W'] = 'W',   -- WORD
+  ['s'] = 's',   -- sentence
+  ['p'] = 'p',   -- paragraph
+  ['"'] = '"',   -- double quotes
+  ["'"] = "'",   -- single quotes
+  ['`'] = '`',   -- backtick
+  ['('] = '(',   -- parentheses
+  [')'] = ')',
+  ['['] = '[',   -- square brackets
+  [']'] = ']',
+  ['{'] = '{',   -- curly braces
+  ['}'] = '}',
+  ['<'] = '<',   -- angle brackets
+  ['>'] = '>',
+  ['t'] = 't',   -- tag
+  ['T'] = 'T',   -- Tag
+  ['b'] = 'b',   -- block (parentheses)
+  ['B'] = 'B',   -- block (curly braces)
+  [','] = ',',   -- comma
+  ['.'] = '.',   -- period
+  [':'] = ':',   -- colon
+  [';'] = ';',   -- semicolon
+  ['?'] = '?',   -- question mark
+  ['!'] = '!',   -- exclamation mark
+  ['/'] = '/',   -- slash
+  ['\\'] = '\\', -- backslash
+  ['n'] = 'n',   -- next (for plugins like vim-surround)
+  ['l'] = 'l',   -- line (for plugins)
+  ['h'] = 'h',   -- heading (for plugins)
+  -- Additional mappings
+  ['i'] = 'i',   -- inner (generic, often used in combinations like `iw`, `i"`, etc.)
+  ['a'] = 'a',   -- argument (for plugins like targets.vim)
+  ['f'] = 'f',   -- function (for plugins like targets.vim)
+  ['c'] = 'c',   -- comment (for plugins like commentary.vim)
+  ['m'] = 'm',   -- method (for plugins like targets.vim)
+  ['o'] = 'o',   -- object (for plugins like targets.vim)
+}
+
+for key, value in pairs(inner_mappings) do
+  vim.keymap.set('o', 't' .. key, 'i' .. value, { noremap = true, silent = true })
+end
+
 vim.keymap.set('n', 'vt', 'vi')
-vim.keymap.set('n', 'yt', 'yi')
-
-vim.keymap.set('n', 'ca', 'ca')
-vim.keymap.set('n', 'da', 'da')
-vim.keymap.set('n', 'va', 'va')
-vim.keymap.set('n', 'ya', 'ya')
-
-vim.keymap.set('n', '=a', '=a')
 
 -------------------
--- quickfix nav.
--------------------
-vim.keymap.set('n', '<c-u>', "<cmd>lprev<cr>zz")
-vim.keymap.set('n', '<c-d>', "<cmd>lnext<cr>zz")
+-- quickfix / location nav.
+-----------------
+vim.keymap.set('n', '[l', function()
+  local success, _ = pcall(function()
+    vim.cmd(vim.v.count1 .. 'lprev')
+  end)
+  if success then vim.cmd('normal! zz') end
+end, { noremap = true, silent = true })
 
-vim.keymap.set('n', '<D-e>', "<cmd>cprev<cr>zz")
-vim.keymap.set('n', '<D-n>', "<cmd>cnext<cr>zz")
+vim.keymap.set('n', ']l', function()
+  local success, _ = pcall(function()
+    vim.cmd(vim.v.count1 .. 'lnext')
+  end)
+  if success then vim.cmd('normal! zz') end
+end, { noremap = true, silent = true })
 
-vim.keymap.set("n", "<D-o>", function()
+vim.keymap.set('n', '<leader>lo', function()
+  local loclist = vim.fn.getloclist(0, { winid = 0 })
+  if loclist.winid == 0 then
+    pcall(function() vim.cmd('lopen') end)
+  else
+    pcall(function() vim.cmd('lclose') end)
+  end
+end, { noremap = true, silent = true })
+
+-- quickfix
+vim.keymap.set('n', '[q', function()
+  local success, _ = pcall(function()
+    vim.cmd(vim.v.count1 .. 'cprev')
+  end)
+  if success then vim.cmd('normal! zz') end
+end, { noremap = true, silent = true })
+
+vim.keymap.set('n', ']q', function()
+  local success, _ = pcall(function()
+    vim.cmd(vim.v.count1 .. 'cnext')
+  end)
+  if success then vim.cmd('normal! zz') end
+end, { noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>qo", function()
   local qf_winid = vim.fn.getqflist({ winid = 0 }).winid
   if qf_winid == 0 then
-    vim.cmd('copen')
+    if #vim.fn.getqflist() > 0 then
+      pcall(function() vim.cmd('copen') end)
+    end
   else
-    vim.cmd('cclose')
+    pcall(function() vim.cmd('cclose') end)
   end
-end)
+end, { noremap = true, silent = true })
 
--------------------
 -- tag nav
 -------------------
 -- <C-] forward
@@ -185,86 +252,6 @@ end)
 -- TodoLocList
 vim.keymap.set({ 'n' }, '<leader>tl', function() vim.cmd("TodoLocList") end)
 
--- switch projects
---vim.keymap.set('n', '<leader>tm', "<cmd>silent !tmux neww tmux-sessionizer.sh<CR>")
-
--------------------
--- Terminal
--------------------
-vim.api.nvim_create_autocmd('TermOpen', {
-  group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
-  callback = function()
-    vim.opt.number = false
-    vim.opt.relativenumber = false
-  end
-})
-
--- Function to toggle terminal
-local terminal_channel = nil
--- Open a new term-- Function to toggle terminal
-local function toggle_terminal()
-  local prev_win = vim.api.nvim_get_current_win()
-  -- Check if any buffer is a terminal
-  local has_terminal = false
-  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-    if vim.bo[buf].buftype == 'terminal' then
-      has_terminal = true
-      terminal_channel = vim.bo[buf].channel
-      break
-    end
-  end
-
-  if has_terminal then
-    -- Close all terminal buffers
-    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-      if vim.bo[buf].buftype == 'terminal' then
-        vim.api.nvim_buf_delete(buf, { force = true })
-      end
-    end
-    terminal_channel = nil
-  else
-    vim.cmd('belowright split | terminal')
-    vim.api.nvim_win_set_height(0, 15)
-    local buf = vim.api.nvim_get_current_buf()
-    terminal_channel = vim.bo[buf].channel
-    vim.api.nvim_win_set_cursor(0, { vim.api.nvim_buf_line_count(0), 0 })
-
-    if prev_win then
-      vim.api.nvim_set_current_win(prev_win) -- Move focus to that window
-    end
-  end
-end
-
-local function send_to_terminal(command)
-  if terminal_channel then
-    vim.api.nvim_chan_send(terminal_channel, command .. '\n')
-  else
-    print('No terminal is open.')
-  end
-end
-
-vim.keymap.set("n", "<D-t>", function() toggle_terminal() end)
-
--- Function to check if awmtt is running
-local function is_awmtt_running()
-  local handle = io.popen("pgrep -u $USER -x Xephyr")
-  if handle then
-    local result = handle:read("*a")
-    handle:close()
-    return result ~= ""
-  end
-end
-
--- Function to start or restart awmtt
-local function start_or_restart_awmtt()
-  if is_awmtt_running() then
-    send_to_terminal("awmtt restart")
-  else
-    send_to_terminal("awmtt start")
-  end
-end
-
-vim.keymap.set("n", "<D-r>", function() start_or_restart_awmtt() end)
 -------------------
 -- UNUSED
 -------------------
@@ -273,5 +260,6 @@ vim.keymap.set('', 'k', '<Nop>')
 vim.keymap.set('', 'j', '<Nop>')
 vim.keymap.set('', 'J', '<Nop>')
 vim.keymap.set('', '<C-o>', '<Nop>')
-vim.keymap.set('', 'q', '<Nop>')
 vim.keymap.set('n', '<leader>ww', '<Nop>')
+vim.keymap.set('n', '<C-u>', '<Nop>')
+vim.keymap.set('n', '<C-d>', '<Nop>')

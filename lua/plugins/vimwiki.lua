@@ -44,7 +44,7 @@ return {
     vim.g.vimwiki_list = {
       {
         path = '~/Documents/Notes',
-        syntax = 'default',
+        syntax = 'markdown',
         ext = '.wiki',
       },
 
@@ -63,5 +63,7 @@ return {
       vim.keymap.set('n', '<leader>ws', "<Nop>", {}),
       vim.keymap.set('n', '<leader>ww', "<Nop>", {}),
     }
+
+    vim.g.vimwiki_global_ext = 0
   end,
 }

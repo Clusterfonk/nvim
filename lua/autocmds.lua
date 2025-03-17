@@ -1,3 +1,4 @@
+-- quit even when empty buffers has things to save
 vim.api.nvim_create_autocmd("QuitPre", {
     callback = function()
         local bufs = vim.api.nvim_list_bufs()
@@ -15,4 +16,10 @@ vim.api.nvim_create_autocmd("QuitPre", {
             end
         end
     end,
+})
+
+-- delete trailing spaces when saving
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*" },
+  command = [[%s/\s\+$//e]],
 })

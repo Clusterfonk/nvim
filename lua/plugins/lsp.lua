@@ -27,8 +27,6 @@ return {
       vim.keymap.set('n', '<C-S>', vim.lsp.buf.signature_help)
       vim.keymap.set('n', 'gl', vim.lsp.buf.format)
       vim.keymap.set('n', 'gd', vim.diagnostic.setqflist)
-      vim.keymap.set('n', 'gn', vim.diagnostic.goto_next)
-      vim.keymap.set('n', 'ge', vim.diagnostic.goto_prev)
     end,
   }
 }

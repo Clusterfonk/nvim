@@ -20,7 +20,7 @@ return {
         autopairs = { enable = true },
         autotag = { enable = true },
         indent = { enable = true },
-        ensure_installed = {'c', 'lua', 'vim', 'vimdoc', 'query'}, 
+        ensure_installed = {'c', 'lua', 'vim', 'vimdoc', 'query'},
         sync_install = true,
         ignore_install = {}, -- List of parsers to ignore installation
         refactor = {
