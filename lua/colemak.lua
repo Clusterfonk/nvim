@@ -88,7 +88,10 @@ vim.keymap.set({ 'n', 'x' }, 'H', 'N')
 vim.keymap.set('n', 'gh', 'gn')
 vim.keymap.set('n', 'gH', 'gN')
 
-vim.keymap.set({ 'n', 'x' }, '<leader>/', ":nohlsearch<CR>")
+vim.keymap.set('n', '<C-l>', function()
+  vim.cmd.nohlsearch()
+  vim.cmd('normal! <C-l>')
+end, { desc = 'Clear search highlight and redraw screen' })
 
 -------------------
 -- line manipulation

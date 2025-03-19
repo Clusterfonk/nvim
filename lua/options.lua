@@ -15,16 +15,14 @@ opt.hid = true              -- Hide buffers when abandoned
 opt.showmatch = true        -- Show matching parentheses
 opt.matchtime = 2           -- N tenth of a second showmatch
 
---opt.formatoptions:remove("o")
-
 opt.completeopt = 'menuone,noinsert,noselect'   -- Autocomplete options
 opt.showmode = false                            -- Hide current mode
 
 opt.ignorecase = true       -- Ignore case letters when search
-opt.smartcase = true        -- Ignore lowercase for the whole pattern
+opt.smartcase = true        -- Cancle ignorecase when uppercase in search pattern
 opt.linebreak = true        -- Wrap on word boundary
 opt.termguicolors = true    -- Enable 24-bit RGB colors
-opt.laststatus = 2            -- Always show statusline
+opt.laststatus = 2          -- Always show statusline
 opt.hlsearch = false
 opt.hlsearch = true
 
